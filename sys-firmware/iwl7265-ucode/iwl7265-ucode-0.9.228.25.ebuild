@@ -10,14 +10,13 @@ vc=($(get_all_version_components "${PV}"))
 MY_PV="${vc[6]}.${vc[4]}.${vc[2]}.${vc[0]}"
 MY_PN="iwlwifi-${DEV_N}-ucode"
 
-DV_MAJOR="4"
-DV_MINOR="1"
-DV_PATCH="0"
+DV_MAJOR="3"
+DV_MINOR="14"
+DV_PATCH="9"
 
 DESCRIPTION="Firmware for Intel (R) Dual Band Wireless-AC ${DEV_N}"
 HOMEPAGE="http://wireless.kernel.org/en/users/Drivers/iwlwifi"
 SRC_URI="https://wireless.wiki.kernel.org/_media/en/users/drivers/${MY_PN}-${MY_PV}.tgz -> ${P}.tgz"
-#        https://wireless.wiki.kernel.org/_media/en/users/drivers/iwlwifi-7265-ucode-25.30.13.0.tgz
 
 LICENSE="ipw3945"
 SLOT="${vc[2]}"
