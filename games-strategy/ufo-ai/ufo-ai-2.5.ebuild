@@ -15,7 +15,7 @@ SRC_URI="mirror://sourceforge/ufoai/${MY_P}-source.tar.bz2
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="debug server editor +client sse"
+IUSE="debug server editor +client sse profile"
 
 # Dependencies and more instructions can be found here:
 # http://ufoai.ninex.info/wiki/index.php/Compile_for_Linux
@@ -46,6 +46,12 @@ RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${MY_P}-source
 
+pkg_setup() {
+	if use profile; then
+		ewarn "USE=\"profile\" is incompatible with the hardened profile's -pie flag."
+	fi
+}
+
 src_unpack() {
 	unpack ${MY_P}-source.tar.bz2
 	cd "${S}"
@@ -71,7 +77,7 @@ src_configure() {
 		$(use_enable sse)
 		--enable-game
 		--disable-paranoid
-		--enable-profiling
+		$(use_enable profile profiling)
 		--bindir="${GAMES_BINDIR}"
 		--libdir="$(games_get_libdir)"
 		--datadir="${GAMES_DATADIR}/${PN/-}"
