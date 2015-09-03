@@ -18,10 +18,29 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
+	dev-libs/libpcre
+	dev-libs/openssl:0
 	dev-ml/camlp4
 	>=dev-ml/findlib-1.5.5
-	>dev-lang/ocaml-4
+	>=dev-lang/ocaml-3.12.1
+	dev-ml/ocaml-ipaddr
+	dev-ml/jsonm
+	dev-ml/ocamlnet[cryptokit,httpd,pcre]
+	dev-ml/ocaml-base64
+	dev-ml/ocaml-re
+	dev-ml/ocaml-ssl
+	dev-ml/odns
+	dev-ml/optcomp
+	dev-ml/ounit
 	dev-ml/pcre-ocaml
+	dev-ml/react
+	dev-ml/tyxml
+	dev-ml/uutf
+	dev-ml/xmlm
+	sys-devel/m4
+	sys-devel/make
+	sys-libs/zlib
+	virtual/pkgconfig
 "
 RDEPEND="${DEPEND}"
 
@@ -29,11 +48,6 @@ S="${WORKDIR}/${MY_P}"
 EGIT_CHECKOUT_DIR=${S}
 
 src_configure() {
-	./configure --prefix=${D}
+	./configure --prefix=/usr/
 }
 
-src_install() {
-	src_install
-
-	dodoc ${S}/libres3/README.md
-}
