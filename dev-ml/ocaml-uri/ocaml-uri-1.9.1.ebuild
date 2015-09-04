@@ -8,7 +8,7 @@ OASIS_BUILD_TESTS=1
 
 inherit oasis findlib
 
-DESCRIPTION="RFC3986 URI parsing library for OCaml" 
+DESCRIPTION="RFC3986 URI parsing library for OCaml"
 HOMEPAGE="https://github.com/mirage/ocaml-uri"
 SRC_URI="https://github.com/mirage/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

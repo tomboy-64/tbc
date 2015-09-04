@@ -8,7 +8,7 @@ OASIS_BUILD_TESTS=1
 
 inherit oasis findlib
 
-DESCRIPTION="A pure OCaml implementation of the DNS protocol" 
+DESCRIPTION="A pure OCaml implementation of the DNS protocol"
 HOMEPAGE="https://github.com/mirage/ocaml-dns"
 SRC_URI="https://github.com/mirage/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
