@@ -18,11 +18,12 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="
-	dev-ml/async:=
+	>=dev-ml/async-112.24.00:=
 	>=dev-ml/ocaml-base64-2.0.0:=
 	dev-ml/cmdliner:=
 	>=dev-ml/lwt-2.4.7:=
 	dev-ml/mirage-profile:=
+	!<dev-ml/mirage-types-1.2.0
 	>=dev-ml/ocaml-cstruct-1.0.1:=
 	>=dev-ml/ocaml-ipaddr-2.6.0:=
 	dev-ml/ocaml-re:=
