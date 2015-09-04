@@ -21,8 +21,7 @@ nginx_modules_use="nginx_modules_http_fastcgi(-),nginx_modules_http_gzip(-),ngin
 DEPEND="
 	dev-libs/libltdl:0
 	dev-libs/yajl
-	net-misc/curl[idn,ipv6(-)?,ldap,ssh,ssl(-)?]
-	net-nds/openldap
+	net-misc/curl[idn,ipv6(-)?,ssh,ssl(-)?]
 	server? ( >=dev-db/sqlite-3.8.4.3:3
 		dev-libs/fcgi
 		www-servers/nginx:mainline[http,ipv6(-)?,${nginx_modules_use},ssl(-)?] )
