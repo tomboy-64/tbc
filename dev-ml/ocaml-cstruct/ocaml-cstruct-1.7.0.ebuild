@@ -15,12 +15,12 @@ SRC_URI="https://github.com/mirage/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="+async +camlp4 +lwt"
 
 RDEPEND="
-	dev-ml/async:=
-	dev-ml/camlp4:=
-	dev-ml/lwt:=
+	async? ( dev-ml/async:= )
+	camlp4? ( dev-ml/camlp4:= )
+	lwt? ( dev-ml/lwt:= )
 	dev-ml/ocplib-endian:=
 	dev-ml/sexplib:=
 	dev-ml/type-conv:=
@@ -28,6 +28,13 @@ RDEPEND="
 DEPEND="
 	>=dev-lang/ocaml-4.01
 	${RDEPEND}
+"
+
+oasis_configure_opts="
+	$(oasis_use_enable lwt lwt)
+	$(oasis_use_enable camlp4 camlp4)
+	$(oasis_use_enable async async)
+	--enable-unix
 "
 
 DOCS=( CHANGES README.md TODO.md )

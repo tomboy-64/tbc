@@ -15,7 +15,7 @@ SRC_URI="https://github.com/mirage/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGPL-2 LGPL-2.1-with-linking-exception ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="+lwt -mirage"
 
 RDEPEND="
 	>=dev-ml/async-112.24.00:=
@@ -30,10 +30,18 @@ RDEPEND="
 	>=dev-ml/ocaml-uri-1.7.0:=
 	dev-ml/async:=
 	!dev-ml/odns
+	lwt? ( dev-ml/lwt
+		dev-ml/ocaml-cstruct[lwt(-)] )
+	mirage? ( dev-ml/mirage-types )
 "
 DEPEND="
 	>=dev-lang/ocaml-4:=
 	${RDEPEND}
+"
+
+oasis_configure_opts="
+	$(oasis_use_enable lwt lwt)
+	$(oasis_use_enable mirage mirage)
 "
 
 DOCS=( CHANGES README.md TODO.md )
