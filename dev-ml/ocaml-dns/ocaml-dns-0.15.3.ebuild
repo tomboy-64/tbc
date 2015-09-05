@@ -40,6 +40,7 @@ DEPEND="
 "
 
 oasis_configure_opts="
+	$(oasis_use_enable async async)
 	$(oasis_use_enable lwt lwt)
 	$(oasis_use_enable nettests nettests)
 "

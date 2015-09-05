@@ -17,6 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
+# Blockers taken from opam file and mostly relevant if mirage enters portage.
 RDEPEND="
 	dev-ml/ocaml-ipaddr
 	>=dev-ml/lwt-2.4.0

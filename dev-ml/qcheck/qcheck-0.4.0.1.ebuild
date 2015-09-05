@@ -17,8 +17,7 @@ KEYWORDS="~amd64"
 IUSE="ounit"
 
 RDEPEND="
-	!<dev-ml/ounit-2
-	ounit? ( dev-ml/ounit )
+	ounit? ( >=dev-ml/ounit-2 )
 "
 DEPEND="
 	${RDEPEND}
