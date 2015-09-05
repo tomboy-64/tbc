@@ -15,7 +15,7 @@ SRC_URI="https://github.com/mirage/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGPL-2 LGPL-2.1-with-linking-exception ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="async lwt"
+IUSE="async lwt nettests"
 
 RDEPEND="
 	async? ( dev-ml/async:= )
@@ -41,6 +41,7 @@ DEPEND="
 
 oasis_configure_opts="
 	$(oasis_use_enable lwt lwt)
+	$(oasis_use_enable nettests nettests)
 "
 
 DOCS=( CHANGES README.md TODO.md )

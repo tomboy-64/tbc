@@ -26,7 +26,7 @@ RDEPEND="
 "
 DEPEND="
 	>=dev-lang/ocaml-4.01
-	dev-ml/type-conv:=
+	dev-ml/type-conv
 	test? ( dev-ml/ounit )
 	${RDEPEND}
 "

@@ -23,7 +23,7 @@ RDEPEND="
 	dev-ml/ocplib-endian:=
 "
 DEPEND="
-	>=dev-lang/ocaml-4:=
+	>=dev-lang/ocaml-4
 	${RDEPEND}
 "
 
