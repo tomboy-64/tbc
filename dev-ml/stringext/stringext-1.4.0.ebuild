@@ -3,13 +3,12 @@
 # $Id$
 
 EAPI=5
-
 OASIS_BUILD_TESTS=1
 
-inherit oasis findlib
+inherit oasis
 
 DESCRIPTION="Extra string functions for OCaml"
-HOMEPAGE="https://github.com/mirage/stringext"
+HOMEPAGE="https://github.com/rgrinberg/stringext"
 SRC_URI="https://github.com/rgrinberg/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
@@ -18,6 +17,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
+	test? ( dev-ml/qcheck[ounit(-)] )
 	>=dev-lang/ocaml-4
 "
 RDEPEND=""

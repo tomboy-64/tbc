@@ -3,13 +3,12 @@
 # $Id$
 
 EAPI=5
-
 OASIS_BUILD_TESTS=1
 
-inherit oasis findlib
+inherit oasis
 
-DESCRIPTION="A pure OCaml implementation of the DNS protocol"
-HOMEPAGE="https://github.com/mirage/ocaml-dns"
+DESCRIPTION="Collect profiling information"
+HOMEPAGE="https://github.com/mirage/mirage-profile https://mirage.io"
 SRC_URI="https://github.com/mirage/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
@@ -18,9 +17,9 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="
-	dev-ml/ocaml-cstruct:=
 	dev-ml/io-page:=
 	dev-ml/lwt:=
+	dev-ml/ocaml-cstruct:=
 	dev-ml/ocplib-endian:=
 "
 DEPEND="

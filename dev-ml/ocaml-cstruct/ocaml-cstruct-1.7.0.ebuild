@@ -3,19 +3,19 @@
 # $Id$
 
 EAPI=5
-
+OASIS_BUILD_DOCS=1
 OASIS_BUILD_TESTS=1
 
-inherit oasis findlib
+inherit oasis
 
 DESCRIPTION="Map OCaml arrays onto C-like structs"
-HOMEPAGE="https://github.com/mirage/ocaml-cstruct"
+HOMEPAGE="https://github.com/mirage/ocaml-cstruct https://mirage.io"
 SRC_URI="https://github.com/mirage/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+async +camlp4 +lwt"
+IUSE="async camlp4 lwt"
 
 RDEPEND="
 	async? ( dev-ml/async:= )
@@ -23,10 +23,11 @@ RDEPEND="
 	lwt? ( dev-ml/lwt:= )
 	dev-ml/ocplib-endian:=
 	dev-ml/sexplib:=
-	dev-ml/type-conv:=
 "
 DEPEND="
 	>=dev-lang/ocaml-4.01
+	dev-ml/type-conv:=
+	test? ( dev-ml/ounit )
 	${RDEPEND}
 "
 
@@ -36,5 +37,4 @@ oasis_configure_opts="
 	$(oasis_use_enable async async)
 	--enable-unix
 "
-
 DOCS=( CHANGES README.md TODO.md )
