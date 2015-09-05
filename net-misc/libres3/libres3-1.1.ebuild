@@ -25,9 +25,9 @@ RDEPEND="
 	dev-ml/ocaml-ipaddr
 	dev-ml/ocaml-re
 	dev-ml/ocaml-ssl
-	dev-ml/ocamlnet[cryptokit,pcre]
 	>=dev-ml/ocamlnet-3.7.4
-	<dev-ml/ocamlnet-4
+	<dev-ml/ocamlnet-4.0.2[cryptokit,pcre]
+	dev-ml/ocamlnet[cryptokit,pcre]
 	dev-ml/optcomp
 	dev-ml/pcre-ocaml
 	dev-ml/ounit
