@@ -14,6 +14,11 @@ LICENSE="GPL-2 LGPL-2.1 openssl"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="+client ipv6 +server ssl"
+
+# The server build depends on tools only built during client build.
+# The client, though, is fully functional without server components (for remote
+# connection, for example.
+# Deactivate both only if you know you need *only* the libs.
 REQUIRED_USE="server? ( client )"
 
 nginx_modules_use="nginx_modules_http_fastcgi(-),nginx_modules_http_gzip(-),nginx_modules_http_proxy(-),nginx_modules_http_scgi(-),nginx_modules_http_uwsgi(-)"
