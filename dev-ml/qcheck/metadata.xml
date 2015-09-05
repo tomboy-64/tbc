@@ -3,4 +3,7 @@
 <pkgmetadata>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="ounit">enable integration with ounit</flag>
+	</use>
 </pkgmetadata>

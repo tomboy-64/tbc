@@ -19,7 +19,7 @@ IUSE=""
 RDEPEND="
 	dev-ml/io-page:=
 	dev-ml/lwt:=
-	dev-ml/ocaml-cstruct:=
+	dev-ml/ocaml-cstruct:=[camlp4(-)]
 	dev-ml/ocplib-endian:=
 "
 DEPEND="

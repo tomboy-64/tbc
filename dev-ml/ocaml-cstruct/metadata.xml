@@ -3,4 +3,9 @@
 <pkgmetadata>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="async">support for asynchronous execution</flag>
+		<flag name="camlp4">enable support for camlp4</flag>
+		<flag name="lwt">enable threads via lwt</flag>
+	</use>
 </pkgmetadata>

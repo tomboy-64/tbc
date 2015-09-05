@@ -3,4 +3,8 @@
 <pkgmetadata>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="async">support for asynchronous execution</flag>
+		<flag name="lwt">enable threads via lwt</flag>
+	</use>
 </pkgmetadata>

@@ -3,4 +3,7 @@
 <pkgmetadata>
 	<longdescription lang="en">
 	</longdescription>
+	<use>
+		<flag name="allservices">compile support for all service types</flag>
+	</use>
 </pkgmetadata>
