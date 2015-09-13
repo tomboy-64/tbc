@@ -95,7 +95,6 @@ DEPEND="
 	dev-java/hamcrest-library:0
 	dev-java/jarjar:1
 	dev-java/objenesis:0
-	dev-java/mockobjects:0
 	dev-java/jansi:0
 	dev-java/jline:0
 	dev-java/jaxb:2
@@ -130,7 +129,6 @@ java_prepare() {
 		./lib/dev/objenesis-1.0.jar
 		./lib/groovy/lib/antlr-2.7.7.jar
 		./plugins/svn4idea/lib/antlr.jar
-		./lib/dev/mockobjects-core-0.09.jar
 		./lib/groovy/lib/jansi-1.6.jar
 		./lib/groovy/lib/jline-1.0.jar
 		./lib/jaxb-impl.jar
@@ -228,7 +226,7 @@ java_prepare() {
 	java-pkg_jar-from --build-only --into "${S}/lib" objenesis objenesis.jar objenesis-1.2.jar
 	java-pkg_jar-from --build-only --into "${S}/lib/dev" objenesis objenesis.jar objenesis-1.0.jar
 	java-pkg_jar-from --build-only --into "${S}/lib/groovy/lib" antlr
-	java-pkg_jar-from --build-only --into "${S}/lib/dev" mockobjects mockobjects-core.jar mockobjects-core-0.09.jar
+	#java-pkg_jar-from --build-only --into "${S}/lib/dev" mockobjects mockobjects-core.jar mockobjects-core-0.09.jar # old, broken, in my case, barfing at gnu-classpath
 	java-pkg_jar-from --build-only --into "${S}/lib/groovy/lib" jansi
 	java-pkg_jar-from --build-only --into "${S}/lib/groovy/lib" jline
 	java-pkg_jar-from --build-only --into "${S}/lib" jaxb-2
