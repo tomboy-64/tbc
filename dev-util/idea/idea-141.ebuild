@@ -342,4 +342,7 @@ src_install() {
 	fperms 755 "${final_dest}/bin/idea.sh" "${final_dest}/bin/fsnotifier" "${final_dest}/bin/fsnotifier64"
 
 	make_desktop_entry "/opt/idea-IC-141.SNAPSHOT/bin/idea.sh" "IntelliJ IDEA" "/opt/idea-IC-141.SNAPSHOT/bin/idea.png"
+
+	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
+	echo "fs.inotify.max_user_watches = 524288" > "${D}/etc/sysctl.d/30-idea-inotify-watches.conf"
 }
