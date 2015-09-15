@@ -20,8 +20,8 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND=">=virtual/jdk-1.7"
 S=${WORKDIR}/${MY_PN}-IU-${MY_PV}
 
-QA_TEXTRELS="opt/${PN}/bin/libbreakgen.so"
-QA_TEXTRELS="opt/${PN}/bin/fsnotifier-arm"
+QA_TEXTRELS="opt/idea-ultimate/bin/libbreakgen.so"
+QA_TEXTRELS="opt/idea-ultimate/bin/fsnotifier-arm"
 
 src_install() {
 	local dir="/opt/${PN}"
