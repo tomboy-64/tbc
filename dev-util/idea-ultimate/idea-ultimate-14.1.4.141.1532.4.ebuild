@@ -6,8 +6,8 @@ EAPI=5
 inherit eutils versionator
 
 SLOT="0"
-PV_STRING="141.2735.5" # Needs to be adjusted for each release.
-MY_PV="$(echo ${PV} | sed -e 's/_pre//')" # Always name EAP-versions with '_pre' for clarity!
+PV_STRING="$(get_version_component_range 4-6)"
+MY_PV="$(get_version_component_range 1-3)" # Always name EAP-versions with '_pre' for clarity!
 MY_PN="idea"
 
 DESCRIPTION="A complete toolset for web, mobile and enterprise development"
@@ -16,7 +16,7 @@ SRC_URI="https://download.jetbrains.com/idea/${MY_PN}IU-${MY_PV}.tar.gz"
 
 LICENSE="IDEA IDEA_Academic IDEA_Classroom IDEA_OpenSource IDEA_Personal"
 IUSE=""
-KEYWORDS="" # No keywords for EAP versions. Code quality sucks.
+KEYWORDS="~amd64 ~x86" # No keywords for EAP versions. Code quality sucks.
 
 DEPEND="!dev-util/idea-ultimate:14
 	!dev-util/idea-ultimate:15"

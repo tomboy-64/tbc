@@ -6,8 +6,8 @@ EAPI=5
 inherit eutils versionator
 
 SLOT="0"
-PV_STRING="142.5047.6" # Needs to be adjusted for each release.
-MY_PV="$(echo ${PV} | sed -e 's/_pre//')" # Always name EAP-versions with '_pre' for clarity!
+PV_STRING="$(get_version_component_range 4-6)" # Needs to be adjusted for each release.
+MY_PV="$(get_version_component_range 1-3)" # Always name EAP-versions with '_pre' for clarity!
 MY_PN="idea"
 
 DESCRIPTION="A complete toolset for web, mobile and enterprise development"
