@@ -27,7 +27,7 @@ S="${WORKDIR}/${MY_PN}-IU-${PV_STRING}"
 QA_TEXTRELS="opt/idea-${MY_PV}/bin/libbreakgen.so"
 
 src_install() {
-	local dir="/opt/idea-${MY_PV}"
+	local dir="/opt/${PN}-${MY_PV}"
 
 	insinto "${dir}"
 	doins -r *
