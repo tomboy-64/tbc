@@ -16,7 +16,7 @@ SRC_URI="https://download.jetbrains.com/idea/${MY_PN}IU-${MY_PV}.tar.gz"
 
 LICENSE="IDEA IDEA_Academic IDEA_Classroom IDEA_OpenSource IDEA_Personal"
 IUSE=""
-KEYWORDS="" # No keywords for EAP versions. Code quality sucks.
+KEYWORDS="~amd64 ~x86" # No keywords for EAP versions. Code quality sucks.
 
 DEPEND="!dev-util/idea-ultimate:14
 	!dev-util/idea-ultimate:15"
@@ -38,4 +38,14 @@ src_install() {
 	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 	mkdir -p "${D}/etc/sysctl.d/"
 	echo "fs.inotify.max_user_watches = 524288" > "${D}/etc/sysctl.d/30-idea-inotify-watches.conf"
+}
+
+pkg_postinst() {
+	if [[ "$(get_version_component_range 7)x" = "prex" ]]
+	then
+		einfo "Be aware, this is a release from their EAP. According to JetBrains, the code"
+		einfo "quality of such releases may be considerably below of what you might usually"
+		einfo "be used to from beta releases."
+		einfo "Don't use it for critical tasks. You have been warned."
+	fi
 }
