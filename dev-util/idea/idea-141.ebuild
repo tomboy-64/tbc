@@ -332,7 +332,7 @@ java_prepare() {
 
 src_install() {
 	local final_dest="/opt/${MY_PN}-${PV}"
-	local destination="${D}${final_dest}"
+	local destination="${ED}/${final_dest}"
 	local tarball="ideaIC-${PV}.SNAPSHOT.tar.gz"
 	local tardir=$(tar -tzf ${S}/out/artifacts/${tarball} | head -n1 | awk -F / '{ print $1 }')
 
@@ -341,8 +341,10 @@ src_install() {
 	tar xzvf "${S}/out/artifacts/${tarball}" --transform 's/\/\?'${tardir}'\///' || die "Moving idea to image directory unsuccessful."
 	fperms 755 "${final_dest}/bin/idea.sh" "${final_dest}/bin/fsnotifier" "${final_dest}/bin/fsnotifier64"
 
-	make_desktop_entry "/opt/idea-IC-141.SNAPSHOT/bin/idea.sh" "IntelliJ IDEA" "/opt/idea-IC-141.SNAPSHOT/bin/idea.png"
+	java-pkg_dolauncher "idea_launcher" --java_args "-XX:ErrorFile=\$HOME/java_error_in_IDEA_%p.log -Djb.restart.code=88 -Didea.paths.selector=IdeaIC14" --main "com.intellij.idea.Main"
+	make_desktop_entry "/usr/bin/idea_launcher" "IntelliJ IDEA" "/opt/idea-141/bin/idea.png"
 
 	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
-	echo "fs.inotify.max_user_watches = 524288" > "${D}/etc/sysctl.d/30-idea-inotify-watches.conf"
+	mkdir -p "${ED}/etc/sysctl.d/"
+	echo "fs.inotify.max_user_watches = 524288" > "${ED}/etc/sysctl.d/30-idea-inotify-watches.conf"
 }
