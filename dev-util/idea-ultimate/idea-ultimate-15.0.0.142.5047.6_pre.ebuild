@@ -6,8 +6,8 @@ EAPI=5
 inherit eutils versionator
 
 SLOT="0"
-PV_STRING="$(get_version_component_range 4-6)" # Needs to be adjusted for each release.
-MY_PV="$(get_version_component_range 1-3)" # Always name EAP-versions with '_pre' for clarity!
+PV_STRING="$(get_version_component_range 4-6)" # Always name EAP-versions with '_pre' for clarity!
+MY_PV="$(get_version_component_range 1-3)"
 MY_PN="idea"
 
 DESCRIPTION="A complete toolset for web, mobile and enterprise development"
@@ -18,13 +18,52 @@ LICENSE="IDEA IDEA_Academic IDEA_Classroom IDEA_OpenSource IDEA_Personal"
 IUSE=""
 KEYWORDS="~amd64 ~x86" # No keywords for EAP versions. Code quality sucks.
 
-DEPEND="!dev-util/idea-ultimate:14
-	!dev-util/idea-ultimate:15"
+DEPEND="!dev-util/${PN}:14
+	!dev-util/${PN}:15"
 RDEPEND="${DEPEND}
 	>=virtual/jdk-1.7"
 S="${WORKDIR}/${MY_PN}-IU-${PV_STRING}"
 
-QA_TEXTRELS="opt/idea-${MY_PV}/bin/libbreakgen.so"
+QA_TEXTRELS="opt/${PN}-${MY_PV}/bin/libbreakgen.so"
+QA_PRESTRIPPED="opt/${PN}-${MY_PV}/lib/libpty/linux/x86/libpty.so
+	opt/${PN}-${MY_PV}/lib/libpty/linux/x86_64/libpty.so
+	opt/${PN}-${MY_PV}/bin/libyjpagent-linux.so
+	opt/${PN}-${MY_PV}/bin/libyjpagent-linux64.so"
+QA_WX_LOAD="
+	opt/${PN}-${MY_PV}/bin/fsnotifier-arm
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/linux/ppc/libnative_auth.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/linux/ppc/libnative_console.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/linux/ppc/libnative_filesystem.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/linux/ppc/libnative_misc.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/linux/ppc/libnative_synchronization.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/sparc/libnative_auth.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/sparc/libnative_console.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/sparc/libnative_filesystem.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/sparc/libnative_misc.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/sparc/libnative_synchronization.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/x86/libnative_auth.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/x86/libnative_console.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/x86/libnative_filesystem.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/x86/libnative_misc.so
+	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/x86/libnative_synchronization.so"
+
+src_prepare() {
+	if ! use amd64; then
+		rm -rf plugins/tfsIntegration/lib/native/linux/x86_64
+	fi
+	if ! use arm; then
+		rm bin/fsnotifier-arm
+		rm -rf plugins/tfsIntegration/lib/native/linux/arm
+	fi
+	if ! use ppc; then
+		rm -rf plugins/tfsIntegration/lib/native/linux/ppc
+	fi
+	if ! use x86; then
+		rm -rf plugins/tfsIntegration/lib/native/linux/x86
+	fi
+	rm -rf plugins/tfsIntegration/lib/native/solaris
+	rm -rf plugins/tfsIntegration/lib/native/hpux
+}
 
 src_install() {
 	local dir="/opt/${PN}-${MY_PV}"
@@ -43,9 +82,9 @@ src_install() {
 pkg_postinst() {
 	if [[ "$(get_version_component_range 7)x" = "prex" ]]
 	then
-		einfo "Be aware, this is a release from their EAP. According to JetBrains, the code"
-		einfo "quality of such releases may be considerably below of what you might usually"
-		einfo "be used to from beta releases."
-		einfo "Don't use it for critical tasks. You have been warned."
+		ewarn "Be aware, this is a release from their EAP. According to JetBrains, the code"
+		ewarn "quality of such releases may be considerably below of what you might usually"
+		ewarn "be used to from beta releases."
+		ewarn "Don't use it for critical tasks. You have been warned."
 	fi
 }

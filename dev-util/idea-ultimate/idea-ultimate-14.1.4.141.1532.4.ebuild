@@ -6,8 +6,8 @@ EAPI=5
 inherit eutils versionator
 
 SLOT="0"
-PV_STRING="$(get_version_component_range 4-6)"
-MY_PV="$(get_version_component_range 1-3)" # Always name EAP-versions with '_pre' for clarity!
+PV_STRING="$(get_version_component_range 4-6)" # Always name EAP-versions with '_pre' for clarity!
+MY_PV="$(get_version_component_range 1-3)"
 MY_PN="idea"
 
 DESCRIPTION="A complete toolset for web, mobile and enterprise development"
@@ -24,7 +24,11 @@ RDEPEND="${DEPEND}
 	>=virtual/jdk-1.7"
 S="${WORKDIR}/${MY_PN}-IU-${PV_STRING}"
 
-QA_TEXTRELS="opt/idea-${MY_PV}/bin/libbreakgen.so"
+QA_TEXTRELS="opt/idea-ultimate-${MY_PV}/bin/libbreakgen.so"
+QA_PRESTRIPPED="opt/idea-ultimate-14.1.4/lib/libpty/linux/x86/libpty.so
+	opt/idea-ultimate-14.1.4/lib/libpty/linux/x86_64/libpty.so
+	opt/idea-ultimate-14.1.4/bin/libyjpagent-linux.so
+	opt/idea-ultimate-14.1.4/bin/libyjpagent-linux64.so"
 
 src_install() {
 	local dir="/opt/${PN}-${MY_PV}"
