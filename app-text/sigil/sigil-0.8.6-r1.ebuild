@@ -14,7 +14,7 @@ MY_PN="Sigil"
 
 DESCRIPTION="Sigil is a multi-platform WYSIWYG ebook editor for ePub format"
 HOMEPAGE="http://sigil-ebook.com/"
-SRC_URI="https://github.com/Sigil-Ebook/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/user-none/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
