@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>perl@gentoo.org</email>
+		<name>Gentoo Perl Project</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="cpan">Math-PlanePath</remote-id>
+		<remote-id type="cpan-module">Math::PlanePath</remote-id>
+		<remote-id type="cpan-module">Math::PlanePath::ToothpickTree</remote-id>
+		<remote-id type="cpan-module">Math::PlanePath::ToothpickReplicate</remote-id>
+		<remote-id type="cpan-module">Math::PlanePath::ToothpickUpist</remote-id>
+		<remote-id type="cpan-module">Math::PlanePath::LCornerTree</remote-id>
+		<remote-id type="cpan-module">Math::PlanePath::LCornerReplicate</remote-id>
+		<remote-id type="cpan-module">Math::PlanePath::OneOfEight</remote-id>
+	</upstream>
+</pkgmetadata>
