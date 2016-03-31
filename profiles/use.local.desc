@@ -2,21 +2,28 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
-dev-ml/ocaml-cstruct:async - support for asynchronous execution
-dev-ml/ocaml-cstruct:camlp4 - enable support for camlp4
-dev-ml/ocaml-cstruct:lwt - enable threads via lwt
-dev-ml/ocaml-dns:async - support for asynchronous execution
-dev-ml/ocaml-dns:lwt - enable threads via lwt
-dev-ml/ocaml-dns:nettests - if running test, also enable network-tests
-dev-ml/ocaml-uri:allservices - compile support for all service types
-dev-ml/qcheck:ounit - enable integration with ounit
+dev-libs/libsecp256k1:asm - Enable x86_64 assembly optimisation
+dev-libs/libsecp256k1:ecdh - Enable ECDH shared secret computation
+dev-libs/libsecp256k1:endomorphism - Enable endomorphism
+dev-libs/libsecp256k1:experimental - Allow experimental USE flags
+dev-libs/libsecp256k1:recovery - Enable ECDSA pubkey recovery module
+dev-libs/libsecp256k1:schnorr - Enable Schnorr signature module
 games-strategy/ufo-ai:client - Build UFO-AI client GUI
 games-strategy/ufo-ai:debug - Create debug build
 games-strategy/ufo-ai:editor - Build map editor
 games-strategy/ufo-ai:profile - Use profile-guided optimizations
 games-strategy/ufo-ai:server - Build UFO-AI server component
 games-strategy/ufo-ai:sse - Make use of sse enhancements
-net-misc/sx:client - Access the SX Cluster from this machine via its Nginx server. Also responsible for tools required to run the server.
-net-misc/sx:ipv6 - Enable support for communication via IPv6.
-net-misc/sx:server - Enable SX's server component.
-net-misc/sx:ssl - Enable communication security via OpenSSL.
+net-p2p/bitcoin-qt:1stclassmsg - Enable first-class Bitcoin message tools
+net-p2p/bitcoin-qt:bitcoin_policy_cltv - Check LockTime Verify policy: Your node will recognise and assist OP_CHECKLOCKTIMEVERIFY (BIP65) transactions
+net-p2p/bitcoin-qt:bitcoin_policy_cpfp - Child-Pays-For-Parent policy: If you mine, you will give consideration to child transaction fees to pay for their parents
+net-p2p/bitcoin-qt:bitcoin_policy_dcmp - Data Carrier Multi-Push policy: Your node will assist transactions with multiple pushes in their data carrier (if any)
+net-p2p/bitcoin-qt:bitcoin_policy_rbf - Replace By Fee policy: Your node will preferentially mine and relay transactions paying the highest fee, regardless of receive order
+net-p2p/bitcoin-qt:bitcoin_policy_spamfilter - Enhanced spam filter policy: Notorious spammers will not be assisted by your node
+net-p2p/bitcoin-qt:ljr - Enable Luke Dashjr's patches
+net-p2p/bitcoin-qt:ljr-antispam - Enable Luke Dashjr's address-based spam filter
+net-p2p/bitcoin-qt:qrcode - Enable generation of QR Codes for receiving payments
+net-p2p/bitcoin-qt:upnp - Enable Universal Plug and Play
+net-p2p/bitcoin-qt:wallet - Enable wallet support
+net-p2p/bitcoin-qt:xt - Enable Mike Hearn's Bitcoin XT patches
+net-p2p/bitcoin-qt:zeromq - Report blocks and transactions via zeromq
